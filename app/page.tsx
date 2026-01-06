@@ -32,11 +32,27 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.10),transparent_55%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:70px_70px]" />
-</div>
+      </div>
         <h1 className="text-5xl font-semibold tracking-wide mb-6">
           AI Hiring, Reimagined
         </h1>
         <p className="text-gray-400 max-w-xl mb-10">
+          {/* Floating Data Pulses */}
+<div className="absolute inset-0 pointer-events-none">
+  {[...Array(18)].map((_, i) => (
+    <span
+      key={i}
+      className="absolute w-1 h-1 bg-cyan-300/30 rounded-full animate-pulse"
+      style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${i * 1.3}s`,
+        animationDuration: "9s"
+      }}
+    />
+  ))}
+</div>
+
           Real-time interview intelligence that sees beyond answers.
         </p>
         <div className="flex gap-6">
@@ -53,6 +69,12 @@ export default function Home() {
       
 {/* LIVE INTERVIEW WATCH */}
 <section className="w-full max-w-6xl mx-auto mt-32 px-6">
+  {/* Ambient AI Grid */}
+<div className="absolute inset-0 pointer-events-none">
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.10),transparent_55%)]" />
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:70px_70px]" />
+</div>
+
   <div className="relative rounded-3xl bg-[#0F141B]/90 backdrop-blur-xl border border-cyan-400/20 shadow-[0_0_80px_rgba(0,255,255,0.12)] p-10">
 
     <h3 className="text-center text-2xl font-semibold text-cyan-300 tracking-wide mb-2">
@@ -63,6 +85,22 @@ export default function Home() {
     </p>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Floating Data Pulses */}
+<div className="absolute inset-0 pointer-events-none">
+  {[...Array(18)].map((_, i) => (
+    <span
+      key={i}
+      className="absolute w-1 h-1 bg-cyan-300/30 rounded-full animate-pulse"
+      style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${i * 1.3}s`,
+        animationDuration: "9s"
+      }}
+    />
+  ))}
+</div>
+
 
       {/* Video */}
       <div className="rounded-xl overflow-hidden relative bg-black/40 h-56">

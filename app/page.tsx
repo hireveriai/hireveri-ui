@@ -1,4 +1,27 @@
 import Divider from "./components/Divider";
+import DemoTranscript from "./components/DemoTranscript";
+import AIDemoStream from "./components/AIDemoStream";
+import NeuralRadar from "./components/NeuralRadar";
+import BrainMeter from "./components/BrainMeter";
+import FraudRadar from "./components/FraudRadar";
+import VerdictStamp from "./components/VerdictStamp";
+
+
+const StatusLine = ({ label }: { label: string }) => (
+  <div className="relative">
+    <div className="flex justify-between mb-1">
+      <span>{label}</span>
+      <span className="text-cyan-400 animate-pulse">ACTIVE</span>
+    </div>
+    <div className="h-[6px] rounded-full bg-cyan-400/10 overflow-hidden">
+      <div className="h-full bg-cyan-400 animate-pulse w-[70%]" />
+    </div>
+  </div>
+);
+
+
+
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B0F14] text-white">
@@ -24,7 +47,7 @@ export default function Home() {
   </div>
 </header>
 
-<Divider />
+<Divider />n
       {/* HERO */}
       
       <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 overflow-hidden">
@@ -36,25 +59,28 @@ export default function Home() {
         <h1 className="text-5xl font-semibold tracking-wide mb-6">
           AI Hiring, Reimagined
         </h1>
-        <p className="text-gray-400 max-w-xl mb-10">
-          {/* Floating Data Pulses */}
-<div className="absolute inset-0 pointer-events-none">
-  {[...Array(18)].map((_, i) => (
-    <span
-      key={i}
-      className="absolute w-1 h-1 bg-cyan-300/30 rounded-full animate-pulse"
-      style={{
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        animationDelay: `${i * 1.3}s`,
-        animationDuration: "9s"
-      }}
-    />
-  ))}
+        <div className="relative mb-10 max-w-xl mx-auto">
+  <p className="text-gray-400 text-center">
+    Real-time interview intelligence that sees beyond answers.
+  </p>
+
+  {/* Floating Data Pulses */}
+  <div className="absolute inset-0 pointer-events-none">
+    {[...Array(18)].map((_, i) => (
+      <span
+        key={i}
+        className="absolute w-1 h-1 bg-cyan-300/30 rounded-full animate-pulse"
+        style={{
+          top: `${(i * 13) % 100}%`,
+          left: `${(i * 23) % 100}%`,
+          animationDelay: `${i * 0.8}s`,
+          animationDuration: "10s"
+        }}
+      />
+    ))}
+  </div>
 </div>
 
-          Real-time interview intelligence that sees beyond answers.
-        </p>
         <div className="flex gap-6">
           <button className="px-8 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
             Recruiter Sign Up
@@ -69,6 +95,8 @@ export default function Home() {
       
 {/* LIVE INTERVIEW WATCH */}
 <section className="w-full max-w-6xl mx-auto mt-32 px-6">
+  
+  
   {/* Ambient AI Grid */}
 <div className="absolute inset-0 pointer-events-none">
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.10),transparent_55%)]" />
@@ -81,6 +109,8 @@ export default function Home() {
       LIVE INTERVIEW WATCH (DEMO)
     </h3>
     <p className="text-center text-gray-400 mb-10">
+      
+      
       Watch AI judge interviews in real-time
     </p>
 
@@ -92,8 +122,8 @@ export default function Home() {
       key={i}
       className="absolute w-1 h-1 bg-cyan-300/30 rounded-full animate-pulse"
       style={{
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
+        top: `${(i * 17) % 100}%`,
+        left: `${(i * 29) % 100}%`,
         animationDelay: `${i * 1.3}s`,
         animationDuration: "9s"
       }}
@@ -102,32 +132,50 @@ export default function Home() {
 </div>
 
 
-      {/* Video */}
-      <div className="rounded-xl overflow-hidden relative bg-black/40 h-56">
-        <div className="absolute inset-0 bg-[url('/demo-face.jpg')] bg-cover blur-md opacity-50"></div>
-        <div className="absolute bottom-3 left-3 text-xs text-cyan-300">Candidate Feed</div>
-      </div>
+<div className="relative rounded-2xl overflow-hidden border border-cyan-400/20 shadow-[0_0_50px_rgba(0,255,255,0.15)]">
+  <video
+    src="/demo-interview.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-56 object-cover"
+  />
 
-      {/* Transcript */}
-      <div className="bg-black/40 rounded-xl p-4 text-sm text-gray-200 overflow-hidden">
-        <div className="animate-pulse space-y-2">
-          <p>AI: Explain how indexing improves performance...</p>
-          <p>Candidate: Indexes reduce IO by...</p>
-          <p className="opacity-50">Candidate: They also improve seek operations...</p>
+  {/* AI HUD Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3">
+    <p className="text-cyan-300 text-xs tracking-widest uppercase">Live Candidate Feed</p>
+    <div className="mt-2 h-[2px] bg-cyan-400/30 overflow-hidden">
+      <div className="h-full w-1/2 bg-cyan-400 animate-pulse"></div>
+    </div>
+  </div>
+</div>
 
-          <Divider />
-        </div>
-      </div>
+      <AIDemoStream />
 
-      {/* Brain Signals */}
-      <div className="grid grid-cols-2 gap-4 text-xs">
-        {["Confidence", "Stress", "Clarity", "Fraud"].map((s) => (
-          <div key={s} className="bg-black/50 rounded-xl p-3 border border-cyan-400/20 shadow-[0_0_30px_rgba(0,255,255,0.08)]">
-            <p className="text-cyan-300 mb-2">{s}</p>
-            <div className="h-2 rounded bg-gradient-to-r from-cyan-400 via-cyan-200 to-cyan-400 animate-pulse"></div>
-          </div>
-        ))}
-      </div>
+   {/* Neural Brain Engine */}
+{/* AI VERDICT ENGINE */}
+<div className="bg-black/50 rounded-2xl p-6 border border-cyan-400/25 shadow-[0_0_60px_rgba(0,255,255,0.18)] relative">
+
+  {/* Verdict */}
+  <VerdictStamp verdict="HIRE" />
+
+  {/* Fraud Radar */}
+  <FraudRadar />
+
+  {/* Neural Radar */}
+  <NeuralRadar />
+
+  {/* Brain Meters */}
+  <div className="grid grid-cols-2 gap-4 mt-4">
+    <BrainMeter label="Confidence" />
+    <BrainMeter label="Stress" />
+    <BrainMeter label="Clarity" />
+    <BrainMeter label="Authenticity" />
+  </div>
+</div>
+
+
     </div>
   </div>
   <Divider />

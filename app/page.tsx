@@ -1,3 +1,4 @@
+import Divider from "./components/Divider";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B0F14] text-white">
@@ -6,9 +7,12 @@ export default function Home() {
   <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
 
     <div className="flex items-center gap-3">
-      <img src="/hireveri-logo.png" className="h-9" />
-      <span className="text-xl tracking-wide text-cyan-300">HireVeri</span>
-    </div>
+  <img
+  src="/hireveri-hex-dark.png"
+  className="h-20 drop-shadow-[0_0_14px_rgba(120,255,255,0.18)]"
+/>
+
+</div>
 
     <nav className="hidden md:flex gap-8 text-sm text-gray-300">
       <span className="hover:text-cyan-300 cursor-pointer">About</span>
@@ -20,9 +24,15 @@ export default function Home() {
   </div>
 </header>
 
-
+<Divider />
       {/* HERO */}
-      <section className="flex flex-col items-center justify-center text-center pt-48 pb-32 px-6">
+      
+      <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 overflow-hidden">
+       {/* Ambient AI Grid */}
+      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.10),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:70px_70px]" />
+</div>
         <h1 className="text-5xl font-semibold tracking-wide mb-6">
           AI Hiring, Reimagined
         </h1>
@@ -37,7 +47,10 @@ export default function Home() {
             Mock Interview
           </button>
         </div>
+
+        <Divider />
       </section>
+      
 {/* LIVE INTERVIEW WATCH */}
 <section className="w-full max-w-6xl mx-auto mt-32 px-6">
   <div className="relative rounded-3xl bg-[#0F141B]/90 backdrop-blur-xl border border-cyan-400/20 shadow-[0_0_80px_rgba(0,255,255,0.12)] p-10">
@@ -63,6 +76,8 @@ export default function Home() {
           <p>AI: Explain how indexing improves performance...</p>
           <p>Candidate: Indexes reduce IO by...</p>
           <p className="opacity-50">Candidate: They also improve seek operations...</p>
+
+          <Divider />
         </div>
       </div>
 
@@ -77,6 +92,7 @@ export default function Home() {
       </div>
     </div>
   </div>
+  <Divider />
 </section>
 {/* AI BRAIN ENGINE STRIP */}
 <section className="max-w-7xl mx-auto px-8 py-10 grid md:grid-cols-3 gap-10">
@@ -84,15 +100,31 @@ export default function Home() {
   {[
     {
       title: "Brain Signals",
-      items: ["Confidence","Stress","Fraud Detection","Clarity"]
+      items: [
+      "Confidence Index",
+      "Stress Patterning",
+      "Clarity Coefficient",
+      "Authenticity Signal",
+      "Cognitive Stability"]
     },
     {
       title: "Transcript Intelligence",
-      items: ["Live Analysis","Context Aware","Emotion Insights"]
+      items: [
+      "Live Semantic Parsing",
+      "Depth Scoring",
+      "Context Memory",
+      "Contradiction Detection",
+      "Intent Classification"]
     },
     {
       title: "Hiring Verdict",
-      items: ["AI Recommendation","Bias Reduction","Risk Scoring"]
+      items: [
+      "AI Recommendation",
+      "Bias Neutralization",
+      "Risk Probability",
+      "Skill Fit Score",
+      "Explainable Rationale"
+    ]
     }
   ].map((b)=>(
     <div key={b.title} className="rounded-3xl bg-[#10151D] border border-cyan-500/20 shadow-[0_0_40px_rgba(0,255,255,0.1)] p-8 hover:shadow-[0_0_60px_rgba(0,255,255,0.18)] transition">
@@ -100,7 +132,11 @@ export default function Home() {
       <ul className="space-y-2 text-gray-300 text-sm">
         {b.items.map(i=><li key={i}>• {i}</li>)}
       </ul>
+
+      <Divider />
     </div>
+
+    
   ))}
 
 </section>
@@ -138,6 +174,7 @@ export default function Home() {
         {i < arr.length - 1 && (
           <div className="text-cyan-400 text-4xl animate-pulse">➜</div>
         )}
+        <Divider />
       </div>
     ))}
   </div>
